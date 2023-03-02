@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>exploring basic java script</title>
+    </head>
+<body>
+
+<h2>Painter entry  Sri Harshika Sattor</h2>
+<form>
+    <label for="form1_Password" class="form-label">The hidden painter name</label>
+    <input type="password" class="form-control" id="Password" value="Monet"> <br>
+
+    <label for="guess">Guess the painter</label>
+    <input type ="text" id="guess" name="guess" autofocus> <br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
+</form>
+
+
+<p id="result">The results will be displayed </p>
+
+<script> 
+var good =0;
+var oops =0;
+
+function checkPainter(){
+    console.log("Check the guess")
+    password = document.getElementById("Password").value
+    guess = document.getElementById("guess").value
+    confirmed = confirm("Are these values matched "+password+" and "+guess)
+    
+    out = document.getElementById("result")
+    if(password==guess){
+        alert("You got it right");
+        good=good+1
+        out.innerHTML = "Correct answer: "+ good +"Wrong answer: " + oops;
+
+    } else {
+        alert("Sorry");
+        oops=oops+1
+        out.innerHTML = "Correct answer: "+ good +"Wrong answer: " + oops;
+    }
+}
+    
+    
+</script>
+<div class="container">
+    <img src="image1.jpg"  width="100px" height="100px" alt="image1" id="image" onclick="selectImage()">
+</div>
+<script>
+    var useImage = 1
+    function selectImage(){
+    switch(useImage){
+        case 1:
+            document.getElementById("image").src="image1.jpg";
+            useImage+=1;
+            break;
+            case 2:
+            document.getElementById("image").src="image2.jpg";
+            useImage+=1;
+            break;
+            case 3:
+            document.getElementById("image").src="image3.jpg";
+            useImage=1;
+            break;
+        }
+    }
+</script>
+
+</body>
+</html>
